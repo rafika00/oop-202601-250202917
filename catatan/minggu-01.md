@@ -22,4 +22,5 @@ Saya masih kesulitan memahami penggunaan lambda di Java dan langkah-langkah peng
 - Fungsional: Lambda membuat kode lebih ringkas, tetapi perlu dibiasakan agar mudah dipahami.
 
 ## Dokumentasi Pengerjaan
+![Dokumentasi](dokumentasi/minggu-01_paradigma.png)
 ![Dokumentasi](dokumentasi/minggu-01_uji.ps1.png)
