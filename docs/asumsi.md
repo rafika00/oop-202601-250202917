@@ -20,10 +20,10 @@ Salin setiap pertanyaan ambigu (nomor 1 sampai 7) ke sini dan jawab. Contoh:
 
 ## A-01: batas waktu bentrok
 - Pertanyaan: 09:00-11:00 dan 11:00-13:00 pada aset yang sama bentrok atau tidak?
-- Keputusan: (isi)
-- Alasan: (isi)
-- Dampak ke kode: (isi)
-- Tes yang membuktikan: (isi)
+- Keputusan: Tidak bentrok; rentang waktu diperlakukan setengah terbuka.
+- Alasan: Aset dapat langsung dipinjam peminjam berikutnya ketika jadwal sebelumnya selesai.
+- Dampak ke kode: `JadwalPeminjaman.bentrok()` hanya menganggap rentang tumpang tindih jika waktu mulai lebih awal dari waktu selesai peminjaman lain.
+- Tes yang membuktikan: `BatasBentrokTest.selesaiSamaDenganMulai()`.
 
 ## Asumsi lain
 
