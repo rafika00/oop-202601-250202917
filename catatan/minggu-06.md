@@ -1,20 +1,20 @@
 # Catatan Minggu 06: UML dan SOLID
 
 ## Yang saya kerjakan
-Saya membuat Class Diagram menggunakan Mermaid (`.mmd`) berdasarkan class, atribut, method, dan hubungan antarclass yang ada di program. Saya juga membuat Sequence Diagram untuk menggambarkan proses pengajuan peminjaman dengan dua kondisi, yaitu pengajuan berhasil dan ketika terjadi bentrok. Selain itu, saya melengkapi dokumentasi penerapan prinsip SOLID di `docs/uml/solid.md`.
+Saya membuat Class Diagram menggunakan Mermaid (`.mmd`) yang berisi class, atribut, method, dan hubungan antarclass sesuai dengan program yang sudah dibuat. Saya juga membuat Sequence Diagram untuk proses pengajuan peminjaman dengan dua kondisi, yaitu pengajuan berhasil dan ketika terjadi bentrok. Selain itu, saya membuat dokumentasi penerapan prinsip SOLID di `docs/uml/solid.md`.
 
 ## Keputusan desain
-Saya memilih tiga prinsip SOLID, yaitu Open/Closed Principle (OCP), Liskov Substitution Principle (LSP), dan Dependency Inversion Principle (DIP). OCP diterapkan melalui interface `AturanDenda` yang memiliki implementasi `DendaFlat` dan `DendaProgresif`. LSP ditunjukkan melalui class `Laptop`, `Ruang`, dan `AlatLab` yang merupakan turunan dari `Aset`. Sedangkan DIP ditunjukkan melalui penggunaan `AturanDenda` sebagai abstraksi pada `LayananDenda`.
+Saya menggunakan Mermaid untuk membuat diagram UML. Prinsip SOLID yang dipilih adalah OCP melalui interface `AturanDenda` dan SRP melalui pemisahan tanggung jawab perhitungan pada `DendaFlat` dan `DendaProgresif`.
 
 ## Kendala
-Saat membuat diagram, saya perlu menyesuaikan hubungan antarclass dan alur peminjaman dengan struktur kode yang sudah ada. Saya juga perlu memperhatikan beberapa bagian yang masih dalam tahap pengerjaan agar diagram dan dokumentasi tetap sesuai dengan kondisi program.
+Saya perlu menyesuaikan diagram dengan kode yang sudah ada, terutama pada proses peminjaman yang beberapa method-nya masih belum diimplementasikan.
 
 ## Penggunaan AI
 - **Alat yang dipakai:** Copilot AI di VS Code.
 - **Bagian yang dibantu AI:** Membantu menyusun diagram UML menggunakan Mermaid dan memahami prinsip SOLID
-- **Prompt utama:** "Bagaimana cara membuat Class Diagram dan Sequence Diagram menggunakan Mermaid serta menjelaskan penerapan prinsip SOLID pada project minggu 06?"
+- **Prompt utama:** "Bagaimana cara membuat Class Diagram dan Sequence Diagram menggunakan Mermaid serta jelaskan penerapan prinsip SOLID pada project minggu 06?"
 - **Yang saya ubah atau tolak dari saran AI, dan alasannya:** Saya menyesuaikan hasil diagram dan penjelasannya agar sesuai dengan struktur kode yang sudah ada.
-- **Satu hal yang saya pahami lebih baik sekarang:** Saya lebih memahami bahwa prinsip SOLID membantu mengatur hubungan antarclass agar program lebih terstruktur dan mudah dikembangkan.
+- **Satu hal yang saya pahami lebih baik sekarang:** Saya jadi lebih memahami cara menggambarkan struktur dan alur program menggunakan UML serta penerapan prinsip SOLID agar kode lebih mudah dikembangkan.
 
 ## Hasil Pengujian
 
@@ -60,7 +60,7 @@ PS D:\#Semester 3\Object Oriented Programming\oop-202601-250202917> mvn -B -ntp 
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running id.ac.upb.asetpinjam.Minggu06DokumenTest
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.097 s -- in id.ac.upb.asetpinjam.Minggu06DokumenTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.117 s -- in id.ac.upb.asetpinjam.Minggu06DokumenTest
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -99,14 +99,14 @@ PS D:\#Semester 3\Object Oriented Programming\oop-202601-250202917> mvn -B -ntp 
 [INFO] ------------------------------------------------------------------------
 [INFO] Reactor Summary for Aset-Pinjam (OOP 202601) 0.1.0:
 [INFO] 
-[INFO] Aset-Pinjam (OOP 202601) ........................... SUCCESS [  0.004 s]
-[INFO] Aset-Pinjam Core (minggu 1-11) ..................... SUCCESS [  3.896 s]
-[INFO] Aset-Pinjam API (minggu 12-15) ..................... SUCCESS [  1.042 s]
+[INFO] Aset-Pinjam (OOP 202601) ........................... SUCCESS [  0.003 s]
+[INFO] Aset-Pinjam Core (minggu 1-11) ..................... SUCCESS [  3.884 s]
+[INFO] Aset-Pinjam API (minggu 12-15) ..................... SUCCESS [  1.185 s]
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  5.478 s
-[INFO] Finished at: 2026-11-12T17:10:27+07:00
+[INFO] Total time:  5.663 s
+[INFO] Finished at: 2026-11-12T19:30:22+07:00
 [INFO] ------------------------------------------------------------------------
 PS D:\#Semester 3\Object Oriented Programming\oop-202601-250202917> 
 ```

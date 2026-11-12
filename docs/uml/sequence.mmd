@@ -1,27 +1,28 @@
 sequenceDiagram
     autonumber
-    actor Peminjam
+
+    actor M as Mahasiswa
+    participant JP as JadwalPeminjaman
     participant P as Peminjaman
-    participant J as JadwalPeminjaman
-    participant D as daftarPeminjaman
 
-    Note over Peminjam,J: LayananDenda menerima AturanDenda pada signature konstruktor, tetapi tidak dipanggil pada alur pengajuan ini. Konstruktor dan hitung() masih TODO minggu 10.
-
-    Peminjam->>P: new Peminjaman(id, peminjam, aset, mulai, selesai)
+    M->>P: Membuat pengajuan peminjaman
     activate P
-    Note over P: Konstruktor memvalidasi data wajib dan memastikan selesai setelah mulai.
-    P-->>Peminjam: objek dibuat dengan status DIAJUKAN
+    Note right of P: Menyiapkan data peminjaman
+    P-->>M: Data peminjaman dibuat
     deactivate P
 
-    alt rentang tidak berbenturan dengan peminjaman yang ada
-        Peminjam->>J: tambah(p)
-        J->>D: add(p)
-        D-->>J: peminjaman tersimpan
-        J-->>Peminjam: selesai
-    else rentang berbenturan dengan peminjaman yang ada
-        Peminjam->>J: tambah(p)
-        J->>D: add(p)
-        D-->>J: peminjaman tetap tersimpan
-        Note over J,D: Kode saat ini tidak menolak bentrok. tambah() menambah apa adanya; bentrok() masih TODO minggu 7 dan ajukan() masih TODO minggu 9. PeminjamanBentrokException belum dilempar oleh alur ini.
-        J-->>Peminjam: selesai tanpa penolakan
+    M->>JP: ajukan(peminjaman)
+    activate JP
+
+    JP->>JP: bentrok(peminjaman)
+
+    alt Tidak terjadi bentrok
+        JP->>JP: tambah(peminjaman)
+        Note right of JP: Peminjaman ditambahkan ke daftar
+        JP-->>M: Pengajuan berhasil dicatat
+    else Terjadi bentrok
+        Note right of JP: Pengajuan tidak dapat dilanjutkan
+        JP-->>M: Pengajuan ditolak karena jadwal bentrok
     end
+
+    deactivate JP
