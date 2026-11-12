@@ -3,7 +3,7 @@ sequenceDiagram
     actor Peminjam
     participant P as Peminjaman
     participant J as JadwalPeminjaman
-    participant "daftar: List<Peminjaman>" as D
+    participant D as daftarPeminjaman
 
     Note over Peminjam,J: LayananDenda menerima AturanDenda pada signature konstruktor, tetapi tidak dipanggil pada alur pengajuan ini. Konstruktor dan hitung() masih TODO minggu 10.
 
